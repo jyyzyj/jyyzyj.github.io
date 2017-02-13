@@ -17,13 +17,13 @@ window.onload = function(){
   document.getElementById("today").innerHTML = time;
 
   //Set the two dates
-  var y2k  = new Date(2007, 1, 1);
+  var y2k  = new Date(2007, 1, 1); // 2017.02.01
   var day1 = new Date(y2k.getFullYear() + 10, y2k.getMonth(), y2k.getDate());
   var today= new Date();
 
   //displays date difference
-  console.log( 'Days since ' + day1.toLocaleDateString() + ': ' + daysBetween(day1, today));
-  document.getElementById("together").innerHTML = daysBetween(day1, today);
+  var diffDays = daysBetween(day1, today);
+  document.getElementById("together").innerHTML = diffDays;
 
 };
 
@@ -39,5 +39,9 @@ function daysBetween(date1, date2) {
   var differenceMs = date2Ms - date1Ms;
 
   // Convert back to days and return
-  return Math.round(differenceMs / oneDay);
+  return Math.floor(differenceMs / oneDay);
+}
+
+function decimalToBinary(decimal){
+    return (decimal >>> 0).toString(2);
 }
