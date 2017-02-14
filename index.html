@@ -76,9 +76,11 @@
       </header>
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
-          <img src="images/jimmy.jpg" class="demo-avatar">
-          <br/>
-          <span>Jimmy Jin</span>
+          <div style="margin: auto;">
+            <img src="images/jimmy.jpg" class="demo-avatar">
+            <br/><br/>
+            <span class="demo-avatar-text">Jimmy Jin</span>
+          </div>
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
           <a class="mdl-navigation__link" href="index.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
@@ -97,6 +99,8 @@
               <br/>
               <br/>
               # It's been <span id="together"></span> days since we've been together.
+              <br/>
+              # <span id="meet"></span> days until we meet again : )
             </div>
           </div>
           <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
@@ -106,6 +110,9 @@
             <div class="mdl-card__actions mdl-card--border"></div>
             <div class="mdl-card__supporting-text mdl-color-text--grey-600">
               # Placeholder
+              <!-- <md-list-item ng-repeat="article in articles">
+                <p> {{ article.description }} </p>
+              </md-list-item> -->
             </div>
           </div>
         </div>

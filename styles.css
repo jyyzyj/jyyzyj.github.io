@@ -18,10 +18,14 @@ html, body {
   font-family: 'Roboto', 'Helvetica', sans-serif;
 }
 .demo-avatar {
-  width: 72px;
-  height: 72px;
-  /*border-radius: 24px;*/
+  width: 80px;
+  height: 80px;
 }
+
+.demo-avatar-text {
+  font-size: 16px;
+}
+
 .demo-layout .mdl-layout__header .mdl-layout__drawer-button {
   color: rgba(0, 0, 0, 0.54);
 }
