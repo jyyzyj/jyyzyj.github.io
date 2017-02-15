@@ -33,12 +33,6 @@ window.onload = function(){
   httpGetAsync(
     'https://newsapi.org/v1/articles?source=techcrunch&apiKey=e2d74b94a5a84ac984b1def211e611fb',
     buildResponse);
-
-    if (typeof(Storage) !== "undefined") {
-      console.log(' Code for localStorage/sessionStorage.');
-    } else {
-      console.log('Sorry! No Web Storage support..');
-    }
 };
 
 function daysBetween(date1, date2) {
@@ -55,19 +49,9 @@ function daysBetween(date1, date2) {
 
   // Convert back to days and return
   // return differenceMs / oneDay;
-
-
   var timeDiff = Math.abs(date2.getTime() - date1.getTime());
   var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
   return diffDays;
-}
-
-function httpGet(theUrl) {
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-    xmlHttp.send( null );
-    // console.log(xmlHttp.responseText);
-    return xmlHttp.responseText;
 }
 
 function httpGetAsync(theUrl, callback) {
@@ -82,5 +66,16 @@ function httpGetAsync(theUrl, callback) {
 
 function buildResponse(response) {
   var news = JSON.parse(response);
-  console.log(news.articles);
+  var articles = news.articles;
+  var innerHTML = '<ul>';
+
+  for (var i = 1; i < articles.length; i++) {
+    innerHTML += '<label for="chkbox1" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">'
+        + '<li><p><a target="_blank" href='
+        + articles[i].url + '> '
+        + articles[i].title
+        + ' </a></p></li></label>';
+  }
+  innerHTML += '</ul>';
+  document.getElementById("news").innerHTML = innerHTML;
 }
